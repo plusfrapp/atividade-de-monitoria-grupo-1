@@ -1,9 +1,85 @@
 #include <stdio.h>
 
+
+void multiplicacao( int * entrada1, int * entrada2, int * saida);                //função 3
+void xor_bits( int * entrada1, int * entrada2, int tam, int * saida);            //função 10
+void maximo( int * entrada1, int * entrada2, int * saida);
+
 int main (){
 
-
-
-
   return 0;
+}
+
+
+
+void multiplicacao( int * entrada1, int * entrada2, int * saida){
+
+    * saida = ( * entrada1) * ( * entrada2);
+}
+
+void xor_bits( int * entrada1, int * entrada2, int tam, int * saida){
+
+    int i;
+
+    for ( i = 0 ; i < tam ; i++ ){
+        if ( * (entrada1 + i) == * (entrada2 + i)) * (saida + i) = 0;
+        else if ( * (entrada1 + i) != * (entrada2 + i)) * (saida + i) = 1;
+    } 
+}
+
+void maximo( int * entrada1, int * entrada2, int * saida){
+
+    if ( * entrada1 > * entrada2 ) * saida = * entrada1;
+    else * saida = * entrada2;
+}
+
+void menor_igual( int * entrada1, int * entrada2, int * saida){
+
+    if ( * entrada1 <= * entrada2 ) * saida = 1;
+    else * saida = 0;
+}
+
+int calc_delta( int * entradaA, int * entradaB, int * entradaC, int * delta){
+
+    int dlt;
+    dlt = ((* entradaB) * (* entradaB)) - (4 * (* entradaA) * ( * entradaC));
+    * delta = dlt;
+
+    printf("delta = %d^2 - 4 * %d * %d\n", *entradaB, *entradaA, *entradaC);
+    printf("delta = %d - %d\n", ((* entradaB) * (* entradaB)), (4 * (* entradaA) * ( * entradaC)));
+    printf("delta = %d\n", ((* entradaB) * (* entradaB)) - (4 * (* entradaA) * ( * entradaC)));
+
+    if ( delta < 0 ){
+        printf("delta negativo, raízes imaginárias\n");
+        return -1;
+    }
+    else if ( delta == 0 ){
+        printf("delta 0, raízes iguais\n");
+        return 0;
+    }
+    else if ( delta > 0 ){
+        printf("delta positivo, raízes diferentes\n");
+        return 1;
+    }
+}
+
+void baskara( int * entradaA, int * entradaB, int * entradaC,int * delta, int * x1, int * x2 ){
+
+    int dlt;
+    dlt = calc_delta;
+    if ( dlt == -1 );
+
+    printf("-%d +- √%d\n___________\n   2 * %d\n", * entradaB, * delta, * entradaA);
+    printf("-%d +- %d\n___________\n    %d\n", * entradaB, sqrt(* delta), 2 * ( * entradaA));
+    if ( dlt == 0 ){
+
+    } else if ( dlt == 1 ){
+
+    }
+}
+
+
+
+int main(){
+    return 0;
 }
